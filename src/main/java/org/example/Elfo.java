@@ -1,20 +1,22 @@
 package org.example;
 
-public class Elfo extends Habitante {
+public class Elfo extends Habitante implements Cura {
 
     private String tribo;
 
-    public Elfo(String nome, int idade, float energia, TerraMedia terraMedia, String tribo) {
-        super(nome, idade, energia, terraMedia);
+    public Elfo(String nome, int idade, float energia, String tribo) {
+        super(nome, idade, energia);
         this.tribo = tribo;
     }
 
-    public String getTribo() {
-        return tribo;
-    }
 
     public void viajar(){
         System.out.println("Elfo viajando...");
+    }
+
+    @Override
+    public void curar() {
+        System.out.println(this.nome + " curando...");
     }
 
     @Override
@@ -25,7 +27,7 @@ public class Elfo extends Habitante {
     @Override
     public void mostrarInfo() {
         System.out.println("Informações do Elfo:");
-        System.out.println("Id: " + contador);
+        System.out.println("Id: " + this.id);
         System.out.println("Nome: " + this.nome);
         System.out.println("Idade: " + this.idade);
         System.out.println("Energia: " + this.energia);

@@ -1,21 +1,18 @@
 package org.example;
 
-public class Anao extends Habitante {
+public class Anao extends Habitante implements Mineracao {
     private float altura;
     private String reino;
 
-    public Anao(String nome, int idade, float energia, TerraMedia terraMedia, float altura, String reino) {
-        super(nome, idade, energia, terraMedia);
+    public Anao(String nome, int idade, float energia, float altura, String reino) {
+        super(nome, idade, energia);
         this.altura = altura;
         this.reino = reino;
     }
 
-    public float getAltura() {
-        return altura;
-    }
-
-    public String getReino() {
-        return reino;
+    @Override
+    public void minerar() {
+        System.out.println(this.nome + " mineirando...");
     }
 
     @Override
@@ -26,7 +23,7 @@ public class Anao extends Habitante {
     @Override
     public void mostrarInfo() {
         System.out.println("Informações do Anao:");
-        System.out.println("Id: " + contador);
+        System.out.println("Id: " + this.id);
         System.out.println("Nome: " + this.nome);
         System.out.println("Idade: " + this.idade);
         System.out.println("Energia: " + this.energia);

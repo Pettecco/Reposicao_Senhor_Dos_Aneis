@@ -4,7 +4,6 @@ public class TerraMedia {
 
     Habitante[] herois = new Habitante[20];
 
-
     public void addHabitante(Habitante habitante){
         for(int i = 0; i < herois.length; i++){
             if(herois[i] == null){

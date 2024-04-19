@@ -1,16 +1,23 @@
 package org.example;
 
-public class Mago extends Habitante {
+public class Mago extends Habitante implements Cura, Feitico {
 
     private String cor;
 
-    public Mago(String nome, int idade, float energia, TerraMedia terraMedia, String cor) {
-        super(nome, idade, energia, terraMedia);
+    public Mago(String nome, int idade, float energia, String cor) {
+        super(nome, idade, energia);
         this.cor = cor;
     }
 
-    public String getCor() {
-        return cor;
+
+    @Override
+    public void lancaFeitico() {
+        System.out.println(this.nome + " lançando feitiço!!");
+    }
+
+    @Override
+    public void curar() {
+        System.out.println(this.nome + " curando...");
     }
 
     @Override
@@ -21,7 +28,7 @@ public class Mago extends Habitante {
     @Override
     public void mostrarInfo() {
         System.out.println("Informações do Mago:");
-        System.out.println("Id: " + contador);
+        System.out.println("Id: " + this.id);
         System.out.println("Nome: " + this.nome);
         System.out.println("Idade: " + this.idade);
         System.out.println("Energia: " + this.energia);
